@@ -24,3 +24,30 @@ In vhdl, 'not' is used for both the bitwise not and logical not operation. How?,
 
 ![image](https://github.com/user-attachments/assets/efb58b24-3217-4e92-a2e5-03433588d751)
 
+The #(parameter='no of bits') should be given after the module name and before the arguments list. If we do not write this, the default value of '4' will taken for the number of bits.
+
+![image](https://github.com/user-attachments/assets/90b2b17d-cd04-401e-9ee8-2e7a80b870af)
+
+Importance of sensitivity list:
+
+Synthesizer is not going to consider the sensitivity list but, simulator consider the sensitivity list. Here, the simulation result and the synthesizer result are same. Because, whenever there is a change in a or b, it will be ANDed.
+
+![image](https://github.com/user-attachments/assets/ed63fb16-a741-45cf-a453-724d0d0851aa)
+
+This is the simulator output
+![image](https://github.com/user-attachments/assets/876ec13d-57b4-4ca9-a1a0-5d975fb9bc4f)
+
+In this case, only when there is a change in A, there will be expected result.
+
+![image](https://github.com/user-attachments/assets/556aeb57-feb1-47e3-9ce1-b0eb512b3a6a)
+
+This is the simulator result
+![image](https://github.com/user-attachments/assets/091c919f-cad4-4295-b757-387282643d67)
+
+In this case, the simulator will goes on running. Because there is no statements inside the always block.
+
+![image](https://github.com/user-attachments/assets/095bb4ae-f8b0-4325-bce6-485898d5a246)
+
+![image](https://github.com/user-attachments/assets/76a74708-35d6-4d4e-8037-ae0f1a4602bf)
+
+But in all the three cases, the synthesis result will be same. Because, the synthesizer will not consider the sensitivity list as mentioned above.
